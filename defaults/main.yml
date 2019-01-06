@@ -2,8 +2,8 @@
 # defaults file for selenium_hub
 selenium_hub_dir: /opt/selenium/hub
 selenium_hub_user: selenium
-selenium_hub_port : 4444
-selenium_hub_servlets : []
+selenium_hub_port: 4444
+selenium_hub_servlets: []
 selenium_hub_withoutservlets: []
 selenium_hub_download: https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
 selenium_hub_throwOnCapabilityNotPresent: true
