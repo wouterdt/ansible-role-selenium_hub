@@ -1,0 +1,12 @@
+[Unit]
+Description=Selenium Hub
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User={{ selenium_hub_user }}
+
+ExecStart={{ selenium_hub_dir }}/start.sh
+
+[Install]
+WantedBy=multi-user.target

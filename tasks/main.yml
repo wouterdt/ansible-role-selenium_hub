@@ -1,0 +1,4 @@
+---
+# Setup/install tasks.
+- include_tasks: install.yml
+- include_tasks: configure.yml

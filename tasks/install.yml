@@ -1,0 +1,44 @@
+- name: create user
+  user:
+    name: '{{ selenium_hub_user }}'
+  become: true
+- name: install packages
+  package:
+    state: present
+    name: "{{item}}"
+  with_items:
+  - java-1.8.0-openjdk
+  - unzip
+  - xorg-x11-server-Xvfb
+  - firefox
+  become: true
+- name: get java folder
+  shell: ls -F /usr/lib/jvm | grep / | sed '$!d' | sed 's:/*$::'
+  register: java_version
+- name: create top dir
+  file:
+     path: "{{ selenium_hub_dir }}"
+     state: directory
+     owner: '{{ selenium_hub_user }}'
+     mode: 0775
+     recurse: yes
+  become: true
+- block:
+  - name: create dirs
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: '{{ selenium_hub_user }}'
+      recurse: yes
+    with_items:
+    - "{{ selenium_hub_dir }}/"
+    - "{{ selenium_hub_dir }}/lib"
+    - "{{ selenium_hub_dir }}/conf"
+
+  - name: download selenium hub binary
+    get_url:
+      url: "{{ selenium_hub_download }}"
+      dest: '{{selenium_hub_dir}}/lib/selenium-server-standalone.jar'
+      mode: 0440
+  become: true
+  become_user: '{{ selenium_hub_user }}'

@@ -1,0 +1,31 @@
+---
+# tasks file for selenium_hub
+- block:
+  - template:
+      src: '{{item.src}}'
+      dest: '{{item.dest}}'
+    with_items:
+    - {src: '{{role_path}}/templates/start.sh.j2' ,dest: '{{ selenium_hub_dir }}/start.sh'}
+    - {src: '{{role_path}}/templates/hub.json.j2' ,dest: '{{ selenium_hub_dir }}/conf/hub.json'}
+  - name: set execute permissions on start script
+    file: 
+      path: "{{ selenium_hub_dir }}/start.sh"
+      mode: 0774
+  become: true
+  become_user: '{{ selenium_hub_user }}'
+- name: setup systemd
+  block:
+  - name: install sytemd service file
+    template:
+      src: '{{role_path}}/templates/selenium.grid.hub.service.j2'
+      dest: '/etc/systemd/system/selenium.grid.hub.service'
+  - name: reload systemd
+    systemd:
+      daemon_reload: yes
+  - name: enable selenium hub service
+    systemd:
+      name: selenium.grid.hub.service
+      state: started
+      enabled: yes
+  become: true
+  become_user: root
