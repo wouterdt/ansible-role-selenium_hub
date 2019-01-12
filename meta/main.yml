@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Wouterdt
-  role_name: wouterdt.selenium_hub
+  role_name: selenium_hub
   description: Selenium hub
   license: GPLv2
   min_ansible_version: 1.2
