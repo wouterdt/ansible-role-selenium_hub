@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: selenium_hub
+    - role: wouterdt.selenium_hub
   pre_tasks:
     - name: insstall yum for docker
       yum:

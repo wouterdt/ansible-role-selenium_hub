@@ -13,12 +13,12 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
+  - ls
   - mv ansible-role-selenium_hub wouterdt.selenium_hub
   - cd wouterdt.selenium_hub
 
 script:
   # Run tests.
   - molecule test
-
 notifications:
 webhooks: https://galaxy.ansible.com/api/v1/notifications/

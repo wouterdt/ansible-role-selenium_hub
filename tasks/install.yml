@@ -10,8 +10,6 @@
   with_items:
     - java-1.8.0-openjdk
     - unzip
-    - xorg-x11-server-Xvfb
-    - firefox
   become: true
 - name: get java folder
   shell: ls -F /usr/lib/jvm | grep / | sed '$!d' | sed 's:/*$::'
