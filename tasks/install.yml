@@ -39,3 +39,9 @@
         dest: '{{selenium_hub_dir}}/lib/selenium-server-standalone.jar'
   become: true
   become_user: '{{ selenium_hub_user }}'
+- name: configure firewall
+  firewalld:
+    port: 8080/tcp
+    permanent: true
+    state: enabled
+  become: true

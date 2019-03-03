@@ -18,10 +18,10 @@
     - name: install sytemd service file
       template:
         src: '{{role_path}}/templates/selenium.grid.hub.service.j2'
-        dest: '/etc/systemd/system/selenium.hub.service'
+        dest: '/etc/systemd/system/selenium_hub.service'
     - name: enable selenium hub service
       service:
-        name: selenium.hub
+        name: selenium_hub
         state: started
         enabled: true
   become: true

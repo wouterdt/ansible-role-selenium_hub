@@ -11,6 +11,8 @@ Role Variables
 --------------
 
 All variables specified in https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultHub.json  are configurable, see defaults/mail.yml
+download source can be set in selenium_hub_download
+
 
 Dependencies
 ------------

@@ -1,17 +1,17 @@
 ---
 # defaults file for selenium_hub
-selenium_hub_dir: /opt/selenium/hub
+selenium_hub_dir: /opt/selenium_hub
 selenium_hub_user: selenium
-selenium_hub_port: 4444
+selenium_hub_port: 8080
 selenium_hub_servlets: []
 selenium_hub_withoutservlets: []
-selenium_hub_download: https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-selenium_hub_throwOnCapabilityNotPresent: true
+selenium_hub_download: https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+selenium_hub_throwOnCapabilityNotPresent: "true"
 selenium_hub_newSessionWaitTimeout: -1
 selenium_hub_custom: "{}"
 selenium_hub_capabilityMatcher: org.openqa.grid.internal.utils.DefaultCapabilityMatcher
 selenium_hub_registry: org.openqa.grid.internal.DefaultGridRegistry
 selenium_hub_cleanUpCycle: 5000
-selenium_hub_debug: false
+selenium_hub_debug: "false"  # required to be string if not will have have bad case set causing selneium not to start
 selenium_hub_browserTimout: 0
 selenium_hub_timeout: 1800
